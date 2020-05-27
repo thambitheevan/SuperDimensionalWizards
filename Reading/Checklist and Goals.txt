@@ -1,0 +1,77 @@
+The purpose of this document is to layout both the current set of focuses for the production and the current short term goal:
+
+  #Implimented later due to complex nature of these systems
+
+
+Ensure naming systems use lower values#
+
+Create Database Production Functions:
+Knoledge: check check
+  Connection to bloodlines #
+Creatures: check
+Plants: check
+Effects:
+  Connection to Knowledge check
+  Connection to Skills
+Skills:
+  Connection to bloodlines
+Bloodlines: 
+Material: 
+  part 1: new and unique: check
+  part 2: via creatures and plants: ceck
+Clothing: check
+  Allow for more than one material#
+
+Create Spell System:
+  Talent:#
+    Prior Knowledge + Character History#
+    Chance of multiple Talent based on Soul Energy to start with#
+  Elements:
+    Knowledge Check
+    Cantrips
+
+
+  Bloodlines:
+    Knowledge->BloodCrafts->Fortifying
+    General Bloodline Adoption
+  Occult:#
+
+
+    Illusions
+    Soul Manipulator
+    Prophesy
+
+
+Create Knowledge Obtaining Systems:
+  Books
+  Teaching#
+  Expiriences
+
+
+Destinies System:#
+
+Body System:
+  Physical Combat Calculation
+
+Database Filling: #
+
+World Structure:
+  Local Area Connections
+  Inter-Region Travel
+  Effects
+
+Alchemy:#
+Tooling
+  Enchantment
+  Sythesis
+Brewing:
+  The Three Schools
+
+Wizard:
+Destiny Log#
+
+
+
+
+
+
