@@ -14,6 +14,32 @@ class effects:#Coming from the effects class folder just easier to put here aswe
     while 1:
       db.append(input("What ability does this effect have? "))
       break
+  def ability_translate(self): #This function provides returns the list of abilities in terms of usable data:
+    db = []
+    damlist = [0,0,0,0]#MP,HP,Mpf,Hpf this is also the returned value
+    for x in self.ability:
+      for i in range(0,len(x)):
+        if x[i] == " " or x[i] == ' ':
+          db.append(i)
+      alpha = x[:db[0]]
+      beta = x[db[0]+1:db[1]]
+      kappa = x[db[1]+1:]
+    rval = -1
+    if alpha in ["mp","Mp","MP"]:
+      rval = 0
+    if alpha in ["hp","Hp","HP"]:
+      rval = 1
+    if alpha in ["mpf","Mpf","MPf","MPF"]:
+      rval = 2
+    if alpha in ["hpf","Hpf","HPf","HPF"]:
+      rval = 3
+    if rval in [0,1]:
+      damlist[rval] = beta
+    if rval in [2,3]:
+      damlist[rval] = [beta,kappa]
+    if rval == -1:
+      return -1
+    return damlist
 
 
 class knowledge:
