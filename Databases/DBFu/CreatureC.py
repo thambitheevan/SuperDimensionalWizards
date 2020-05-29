@@ -4,6 +4,7 @@ creature_db_struct = {
   'Health': 100,
   'Skills':[],
   'Rarity':[]#0>100 as most rare
+  #Add drops 
 }
 
 def cmake():#This is the function for creating monsters!!
