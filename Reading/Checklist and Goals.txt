@@ -5,7 +5,7 @@ The purpose of this document is to layout both the current set of focuses for th
 
 Ensure naming systems use lower values#
 
-Convert To Classes
+Convert To Classes check
 Create Database Production Functions:
 Knoledge: check check
   Connection to bloodlines #
@@ -38,12 +38,7 @@ Create Spell System:
   Bloodlines:
     Knowledge->BloodCrafts->Fortifying
     General Bloodline Adoption
-  Occult:#
-
-
-    Illusions
-    Soul Manipulator
-    Prophesy
+  Occult:
 
 
 Create Knowledge Obtaining Systems:

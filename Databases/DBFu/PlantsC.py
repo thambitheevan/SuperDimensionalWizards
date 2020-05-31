@@ -1,10 +1,11 @@
 #The Database of the potential Knowledge Groups
-
-plant_db_struct={
-  'Name': 'Default',
-  'Description':'Default',
-  #'Magic Properties':[], for future implimentation
-}
+class plant:
+  def __init__(self,name,description,skills=[],drops=[]):
+    self.name = name
+    self.description = description
+    self.skills = skills
+    self.drops = drops
+    return
 
 def pmake():#This is the function for creating monsters!!
   n=1
@@ -28,17 +29,23 @@ def plant_creator():
   while off ==0:
     name = input('What is the name of this Plant?: ')
     for x in db:
-      if x['Name'] == name:
+      if x.name == name:
         flag = 1
         break
     if flag == 1:
       print("That Plant already exists: ")
       continue
-    Description = input("What should its description?: ")
-    ktemp = plant_db_struct
-    ktemp['Name'] = name
-    ktemp['Description'] = Description
-    db.append(ktemp)
+    description = input("What should its description?: ")
+    #This section will allow new skills to be added, these are not automatically added to the total skills base but need to Be
+    tflag = 0
+    skills =[]
+    while tflag ==0:
+      if input("Would you like to add a skill?: y/n ") in ["n","N","No","NO"]:
+        tflag = 1
+        break
+      skills.append(input("What is the name of the skill"))
+    newplant = plant(name,description,[])
+    db.append(newplant)
     off = 1
     print(db)
   with open('plant_db.pkl','wb') as pickle_file:
@@ -53,7 +60,7 @@ def plant_read():
     print("The plants that are currently known to exist are listed as following: ")
     try:
       while 1:
-        print(pickle.load(pickle_file))
+        print(vars(pickle.load(pickle_file)))
     except EOFError:
       pass
   return

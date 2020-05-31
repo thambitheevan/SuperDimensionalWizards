@@ -1,11 +1,13 @@
-creature_db_struct = {
-  'Name': "Default",
-  'Mana Pool': 0,
-  'Health': 100,
-  'Skills':[],
-  'Rarity':[]#0>100 as most rare
-  #Add drops 
-}
+class creature:
+  def __init__(self,name,Mp,Hp,skills,rare,drops = []):
+    self.name = name
+    self.Mp = Mp
+    self.Hp = Hp
+    self.skills = skills
+    self.rare = rare
+    self.drops = drops #Will be updated when materials are added from the materials section
+    return
+
 
 def cmake():#This is the function for creating monsters!!
   n=1
@@ -30,7 +32,7 @@ def creature_creator(): #This function will allow you to add new creatures to th
   while off ==0:
     name = input('What is the name of this type of Creature?: ')
     for x in db:
-      if x['Name'] == name:
+      if x.name == name:
         flag = 1
         break
     if flag == 1:
@@ -47,15 +49,8 @@ def creature_creator(): #This function will allow you to add new creatures to th
         continue
       elif skval =="n" or skval == "NO" or skval == "no" or skval == "No":
         break
-
-
-    ctemp = creature_db_struct
-    ctemp['Name'] = name
-    ctemp['Mana Pool'] = MP
-    ctemp['Health'] = Health
-    ctemp['Skills'] = skills
-    ctemp['Rarity'] = rare
-    db.append(ctemp)
+    ncreature = creature(name,MP,Health,skills,rare)
+    db.append(ncreature)
     off = 1
     print(db)
   with open('creature_db.pkl','wb') as pickle_file:
@@ -70,7 +65,7 @@ def creature_read():
     print("The creatures that are currently known to exist are listed as following: ")
     try:
       while 1:
-        print(pickle.load(pickle_file))
+        print(vars(pickle.load(pickle_file)))
     except EOFError:
       pass
   return

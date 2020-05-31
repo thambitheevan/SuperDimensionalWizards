@@ -1,11 +1,31 @@
-material_db_struct = {
-  "Name": "Name",
-  "Value":0,
-  "Weight":0,
-  #"Magical Property":"blah",
-  "Strength":0,
-  "Source":"" 
-  }
+
+class material:
+  def __init__(self,name,value,weight,strength,skills,source):
+    self.name =name
+    self.value = value
+    self.weight = weight
+    self.strength = strength
+    self.skills = skills
+    self.source = source
+    return
+
+class creature:
+  def __init__(self,name,Mp,Hp,skills,rare,drops = []):
+    self.name = name
+    self.Mp = Mp
+    self.Hp = Hp
+    self.skills = skills
+    self.rare = rare
+    self.drops = drops #Will be updated when materials are added from the materials section
+    return
+
+class plant:
+  def __init__(self,name,description,skills=[],drops=[]):
+    self.name = name
+    self.description = description
+    self.skills = skills
+    self.drops = drops
+    return
 
 def mat_true_make(): #This function will 
   import pickle
@@ -30,24 +50,17 @@ def mat_true_make(): #This function will
     for x in ogdb:
       flag = 0
       while flag == 0:
-        strtmp = "Would you like to create a new material from: ",x,"if so type yes if not type no"
+        strtmp = "Would you like to create a new material from: ",x.name,"if so type yes if not type no"
         temp = input(strtmp)
         if temp == "yes" or temp == "Yes" or temp == "YES":
           #Once magic properties are introduced add them here 
-          mattemp = mattemp = {
-  "Name": "Name",
-  "Value":0,
-  "Weight":0,
-  #"Magical Property":"blah",
-  "Strength":0,
-  "Source":"" 
-  }
-          mattemp["Name"] = input("What is the name of the material? ")
-          mattemp["Value"] = int(input("What is the value of this material: "))
-          mattemp["Weight"] = int(input("What is the weight of this material: "))
-          mattemp["Strength"] = int(input("What is the strength: ")) 
-          mattemp["Source"] = x['Name']
-          db.append(mattemp)
+          name = input("What is the name of the material? ")
+          value = int(input("What is the value of this material: "))
+          weight = int(input("What is the weight of this material: "))
+          strength = int(input("What is the strength: ")) 
+          source = x.name
+          skills = x.skills #The total set of skill which can be attributed from the monster #Not all will occur
+          db.append(material(name,value,weight,strength,skills,source))
 
         if temp == "no" or temp == "No" or temp == "NO":
           flag = 1
@@ -82,24 +95,17 @@ def mat_true_make(): #This function will
       flag = 0
       while flag == 0:
         
-        strtmp = "Would you like to create a new material from: ",x,"if so type yes if not type no"
+        strtmp = "Would you like to create a new material from: ",x.name,"if so type yes if not type no"
         temp = input(strtmp)
         if temp == "yes" or temp == "Yes" or temp == "YES":
           #Once magic properties are introduced add them here 
-          mattemp = {
-  "Name": "Name",
-  "Value":0,
-  "Weight":0,
-  #"Magical Property":"blah",
-  "Strength":0,
-  "Source":"" 
-  }
-          mattemp["Name"] = input("What is the name of the material? ")
-          mattemp["Value"] = int(input("What is the value of this material: "))
-          mattemp["Weight"] = int(input("What is the weight of this material: "))
-          mattemp["Strength"] = int(input("What is the strength: ")) 
-          mattemp["Source"] = x['Name']
-          db.append(mattemp)
+          name = input("What is the name of the material? ")
+          value = int(input("What is the value of this material: "))
+          weight = int(input("What is the weight of this material: "))
+          strength = int(input("What is the strength: ")) 
+          source = x.name
+          skills = x.skills #The total set of skill which can be attributed from the monster #Not all will occur
+          db.append(material(name,value,weight,strength,skills,source))
         if temp == "no" or temp == "No" or temp == "NO":
           flag = 1
           continue
@@ -124,50 +130,6 @@ def mat_true_make(): #This function will
     mat_true_make()#Calls the function again for the user to try again
   return
 
-def mmake():#this function will create materials from scratch 
-  n=1
-  while n ==1:
-    material_creator()
-    n = int(input("put 1 to continue else put 0"))
-  return
-
-
-def material_creator(): 
-  import pickle
-  off = 0
-  flag = 0
-  db = []
-  with open('material_db.pkl','rb') as pickle_file:
-    try:
-      while 1:
-        db.append(pickle.load(pickle_file))
-    except EOFError:
-      pass
-  while off ==0:
-    name = input('What is the name of this Material?: ')
-    for x in db:
-      if x['Name'] == name:
-        flag = 1
-        break
-    if flag == 1:
-      print("That material already exists: ")
-      continue
-    value = int(input("What is its value?: "))
-    weight = int(input("What is its weight?: "))
-    strength = int(input("What is its strength?: "))
-    ktemp = material_db_struct
-    ktemp["Name"] = name
-    ktemp["Value"] = value
-    ktemp["Weight"] = weight
-    ktemp["Strength"] = strength
-    db.append(ktemp)
-    off = 1
-    print(db)
-  with open('material_db.pkl','wb') as pickle_file:
-    for x in db:
-      pickle.dump(x,pickle_file)
-  return
-
 def material_read():
   import pickle
  #This function will print out the list of all creatures that exist in our data base
@@ -175,7 +137,7 @@ def material_read():
     print("The known materials are: ")
     try:
       while 1:
-        print(pickle.load(pickle_file))
+        print(vars(pickle.load(pickle_file)))
     except EOFError:
       pass
   return
