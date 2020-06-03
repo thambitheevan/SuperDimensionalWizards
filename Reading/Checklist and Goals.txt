@@ -15,11 +15,11 @@ Plants: check
   Plant Modify
 Effects:
   Connection to Knowledge check
-  Connection to Skills
+  Connection to Skills check
 Skills:
-  Connect to the creatures and plants
-  Connection to bloodlines
-Bloodlines: 
+  Connect to the creatures check
+  Connection to bloodlines check
+Bloodlines: check
 Material: 
   part 1: new and unique: check
   part 2: via creatures and plants: ceck

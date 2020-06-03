@@ -5,7 +5,7 @@ class effects:#Coming from the effects class folder just easier to put here aswe
     self.description = description
     self.lvlcap = lvlcap
     self.level = level
-    self.ability = ability #This will describe things such as damage over time, mana loss etc
+    self.ability = ability #This will describe things such as damage over time, mana lo
     return 
   def lvl_up(self):
     self.level = self.level + 1
