@@ -2,7 +2,7 @@
 #They can Target Health, Mana Pool or can apply other effects aswell
 # SKills work via activating effects 
 #Cantrips and Spells are examples of Skills
-#Skills can also be inherited from bloodlines or creatures
+#Skills can also be inherited from creatures or plants
 
 class Skills:
   def __init__(self, name, cat, effects):
