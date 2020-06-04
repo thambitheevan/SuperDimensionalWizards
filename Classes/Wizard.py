@@ -2,7 +2,7 @@
 #Converted from a Struct to a Class System OOP
 
 class Wizard:
-  def __init__(self,name,Senergy,Squality,Smodel,Mpool=100.0,Mprops=[0.0,0.0],knowledge=[],level=0,skills=[],truth=0,bloodline=["human"],body=0,clothing = [],health=1000):
+  def __init__(self,name,Senergy,Squality,Smodel,Mpool=100.0,Mprops=[0.0,0.0],knowledge=[],level=0,skills=[],truth=0,bloodline=["human"],body=0,clothing = [],health=1000,charstate=[]):
     self.name = name
     self.Senergy = Senergy
     self.Squality = Squality
@@ -17,6 +17,7 @@ class Wizard:
     self.body = body
     self.clothing = clothing
     self.health = health
+    self.charstate=charstate #This value is what is used to keep track of the game, the initial comes from the intro and as the game continues each desicion and "save state" comes from the flags
     return
   def spirit_model_check(self):
     import math
